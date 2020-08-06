@@ -9,9 +9,23 @@ public class Account {
 		this.accountName = accountName;
 		this.openingBalance = openingBalance;
 	}
-	
+
+	public void debit(double amount){
+		if(amount > 0){
+			this.openingBalance -= amount;
+		}
+	}
+
+	public void deposit(double amount){
+		if (amount >0){
+			this.openingBalance +=amount;
+		}
+
+	}
+
 	public String toString() {
 		return (accountName + ": " + openingBalance);
 	}
 
 }
+
