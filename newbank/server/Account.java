@@ -13,7 +13,7 @@ public class Account {
 
 	}
 
-	public void deposit(String accountName,double amount){
+	public void deposit(double amount){
 		if (amount >0){
 			this.openingBalance +=amount;
 		}
