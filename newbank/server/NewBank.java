@@ -1,5 +1,7 @@
 package newbank.server;
 
+import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class NewBank {
@@ -38,18 +40,29 @@ public class NewBank {
 	}
 
 	// commands from the NewBank customer are processed in this method
-	public synchronized String processRequest(CustomerID customer, String request) {
-		if(customers.containsKey(customer.getKey())) {
-			switch(request) {
-			case "SHOWMYACCOUNTS" : return showMyAccounts(customer);
-			default : return "FAIL";
+	public synchronized String processRequest(PrintWriter consprint,
+											  CustomerID customer, String request) {
+
+		if (customers.containsKey(customer.getKey())) {
+			if (request.equals("SHOWMYACCOUNTS")) {
+				consprint.println("SHOWMYACCOUNTS DONE");
+				return showMyAccounts(customer);
+			} else if(request.equals("MOVE")) {
+				consprint.println("SHOWMYACCOUNTS DONE");
+				return move(); // not finished yet
+			} else{
+				return "FAIL";
 			}
 		}
 		return "FAIL";
 	}
-	
+
 	private String showMyAccounts(CustomerID customer) {
 		return (customers.get(customer.getKey())).accountsToString();
 	}
 
+	private String moveMoney(Double amount, Account from, Account to){
+
+	}
 }
+
