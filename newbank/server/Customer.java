@@ -18,6 +18,13 @@ public class Customer {
 		return s;
 	}
 
+	public void move(Double amount, Account from, Account to){
+		if(amount > 0){
+			from.debit(amount);
+			to.deposit(amount);
+		}
+	}
+
 	public void addAccount(Account account) {
 		accounts.add(account);		
 	}
