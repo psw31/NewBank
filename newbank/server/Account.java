@@ -14,4 +14,16 @@ public class Account {
 		return (accountName + ": " + openingBalance);
 	}
 
+	/**
+	 * makePayment: returns true deducts amount from openingBalance if openingBalance >= amount,
+	 * otherwise returns false and does not alter openingBalance.
+	 */
+	public boolean makePayment(double amount) {
+		if (openingBalance >= amount) {
+			openingBalance -= amount;
+			return true;
+		}
+		return false;
+	}
+
 }
