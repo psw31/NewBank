@@ -18,7 +18,19 @@ public class Customer {
 		return s;
 	}
 
+
 	public void addAccount(Account account) {
 		accounts.add(account);		
+	}
+
+	/**
+	 * Returns the first account in the accounts array or null is accounts is empty.
+	 */
+	public Account getAccount() {
+		if (accounts.isEmpty()) {
+			return null;
+		}
+
+		return accounts.get(0);
 	}
 }
